@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MeloGap | میلو گپ</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Tahoma, sans-serif;
+    background: #090d1c;
+    color: white;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 450px;
+    margin: auto;
+    padding: 25px 18px;
+}
+
+.header {
+    text-align: center;
+    padding: 35px 10px;
+}
+
+.logo {
+    font-size: 38px;
+    font-weight: bold;
+    background: linear-gradient(90deg,#35c9ff,#a45cff);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    color: #8993b5;
+    margin-top: 12px;
+    font-size: 13px;
+}
+
+.profile {
+    background: linear-gradient(135deg,#192c53,#302052);
+    border: 1px solid #46517e;
+    padding: 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.profile h3 {
+    margin-bottom: 8px;
+}
+
+.profile p {
+    color: #aab5d5;
+    font-size: 13px;
+}
+
+.menu {
+    display: grid;
+    gap: 13px;
+}
+
+.menu button {
+    width: 100%;
+    padding: 19px;
+    border: 1px solid #28365c;
+    border-radius: 15px;
+    background: #141d35;
+    color: white;
+    font-size: 15px;
+    text-align: right;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.menu button:active {
+    transform: scale(.97);
+    background: #25365f;
+}
+
+.menu button span {
+    margin-left: 10px;
+}
+
+.section {
+    display: none;
+    background: #141d35;
+    border: 1px solid #28365c;
+    padding: 22px;
+    border-radius: 18px;
+    margin-top: 20px;
+}
+
+.section h3 {
+    margin-bottom: 18px;
+    color: #72caff;
+}
+
+.section input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #45547b;
+    background: #090d1c;
+    color: white;
+    margin-bottom: 12px;
+    outline: none;
+}
+
+.action {
+    background: linear-gradient(90deg,#287cff,#914dff);
+    border: none;
+    padding: 13px;
+    color: white;
+    border-radius: 10px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.back {
+    margin-top: 12px;
+    background: #26314f;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 35px;
+    color: #64708e;
+    font-size: 11px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="header">
+        <div class="logo">MeloGap</div>
+        <div class="subtitle">دنیای جدید گفتگو و ارتباط</div>
+    </header>
+
+    <div class="profile">
+        <h3>👋 خوش اومدی به میلو گپ</h3>
+        <p>اینجا شروع یک تجربه جدید از گفتگوئه.</p>
+    </div>
+
+    <div class="menu">
+        <button onclick="showPage('profile')">
+            <span>👤</span> پروفایل من
+        </button>
+
+        <button onclick="showPage('chat')">
+            <span>💬</span> بخش گفتگو
+        </button>
+
+        <button onclick="showPage('rules')">
+            <span>📜</span> قوانین میلو گپ
+        </button>
+
+        <button onclick="showPage('support')">
+            <span>🛟</span> پشتیبانی
+        </button>
+    </div>
+
+    <div class="section" id="profile">
+        <h3>👤 پروفایل من</h3>
+        <input id="nickname" placeholder="نام نمایشی خود را وارد کن">
+        <button class="action" onclick="saveName()">ذخیره نام</button>
+        <p id="savedName" style="margin-top:15px;color:#aab5d5"></p>
+        <button class="action back" onclick="goBack()">بازگشت</button>
+    </div>
+
+    <div class="section" id="chat">
+        <h3>💬 بخش گفتگو</h3>
+        <p style="color:#aab5d5;line-height:2">
+            این بخش در نسخه بعدی به سیستم گفتگوی امن متصل خواهد شد.
+        </p>
+        <button class="action back" onclick="goBack()">بازگشت</button>
+    </div>
+
+    <div class="section" id="rules">
+        <h3>📜 قوانین میلو گپ</h3>
+        <p style="color:#aab5d5;line-height:2">
+            ۱. احترام به تمام کاربران الزامی است.<br>
+            ۲. ارسال محتوای آزاردهنده ممنوع است.<br>
+            ۳. اطلاعات شخصی خود و دیگران را منتشر نکنید.<br>
+            ۴. در صورت مشاهده تخلف، گزارش دهید.
+        </p>
+        <button class="action back" onclick="goBack()">بازگشت</button>
+    </div>
+
+    <div class="section" id="support">
+        <h3>🛟 پشتیبانی</h3>
+        <p style="color:#aab5d5">
+            برای پشتیبانی و گزارش مشکل، از بخش ارتباط با مدیریت استفاده کنید.
+        </p>
+        <button class="action back" onclick="goBack()">بازگشت</button>
+    </div>
+
+    <div class="footer">
+        MeloGap © 2026
+        <br><br>
+        ساخته شده برای یک تجربه بهتر
+    </div>
+
+</div>
+
+<script>
+function showPage(id) {
+    document.querySelector('.menu').style.display = 'none';
+    document.querySelector('.profile').style.display = 'none';
+    document.querySelectorAll('.section').forEach(page => {
+        page.style.display = 'none';
+    });
+    document.getElementById(id).style.display = 'block';
+}
+
+function goBack() {
+    document.querySelectorAll('.section').forEach(page => {
+        page.style.display = 'none';
+    });
+    document.querySelector('.menu').style.display = 'grid';
+    document.querySelector('.profile').style.display = 'block';
+}
+
+function saveName() {
+    const name = document.getElementById('nickname').value.trim();
+    if (!name) {
+        alert('لطفاً یک نام وارد کن');
+        return;
+    }
+    document.getElementById('savedName').innerText =
+        'نام نمایشی: ' + name;
+}
+</script>
+
+</body>
+</html>
